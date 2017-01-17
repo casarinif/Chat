@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void SaveContact(final int id_user){
 
-        String URL = "http://192.168.15.15/whap/get_all_contacts.php";
+        String URL = "http://192.168.15.15/chat/get_all_contacts.php";
 
         Ion.with(getBaseContext())
                 .load(URL)

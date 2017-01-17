@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--suppress XmlUnboundNsPrefix -->
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.eduardocasarini.chat.CadastroActivity">
+    tools:context=".CadastroActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -33,7 +32,7 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="com.example.eduardocasarini.chat.CadastroActivity"
+        tools:context="br.com.rlsystem.chat.CadastroActivity"
         tools:showIn="@layout/activity_cadastro">
 
         <EditText
@@ -43,7 +42,6 @@
             android:hint="Nome"
             android:ems="10"
             android:id="@+id/txtNome"
-            android:textColor="#000000"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -57,7 +55,6 @@
             android:ems="10"
             android:hint="E-mail"
             android:id="@+id/txtEmail"
-            android:textColor="#000000"
             android:layout_below="@+id/txtNome"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -71,7 +68,6 @@
             android:ems="10"
             android:hint="Senha"
             android:id="@+id/txtSenha"
-            android:textColor="#000000"
             android:layout_below="@+id/txtEmail"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -84,7 +80,6 @@
             android:inputType="numberPassword"
             android:ems="10"
             android:id="@+id/txtSenha2"
-            android:textColor="#000000"
             android:layout_below="@+id/txtSenha"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -97,7 +92,6 @@
             android:layout_height="wrap_content"
             android:text="Cadastrar"
             android:id="@+id/btnCadastrar"
-            android:textColor="#000000"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
