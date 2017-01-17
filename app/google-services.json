@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "663220666362",
+    "firebase_url": "https://chat-eca0d.firebaseio.com",
+    "project_id": "chat-eca0d",
+    "storage_bucket": "chat-eca0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663220666362:android:9c68edafd6bbadd4",
+        "android_client_info": {
+          "package_name": "com.example.eduardocasarini.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "663220666362-taf06co0ubj47fvkq18hg07erjkoi6d7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.eduardocasarini.chat",
+            "certificate_hash": "201B72F24D86B35125D6A3FC47B92419417D364A"
+          }
+        },
+        {
+          "client_id": "663220666362-uv680fbhag5tp1unprk0r0emf9o38thu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUalxq6vqRQgagmZemQ2bmpy_HBWg3vbI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "663220666362-uv680fbhag5tp1unprk0r0emf9o38thu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

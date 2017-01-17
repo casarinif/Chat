@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "874004927249",
+    "firebase_url": "https://chat-789ce.firebaseio.com",
+    "project_id": "chat-789ce",
+    "storage_bucket": "chat-789ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874004927249:android:b09faffa2d05ecaf",
+        "android_client_info": {
+          "package_name": "com.exemplo.eduardocasarini.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874004927249-0bu8i7ar64hgkeun2a7keul0vk28o2ec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAov6wx6rrxP3rcuDCeLEF5J-_1_t5ujN0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
