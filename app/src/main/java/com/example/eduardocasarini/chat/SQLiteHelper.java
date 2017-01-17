@@ -5,14 +5,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class SQLiteHelper extends SQLiteOpenHelper {
+public class SQLiteHelper extends SQLiteOpenHelper {
 
-    private static final String name_db = "AppChat.db";
-    private static final int version_db = 2;
+    private static final String name_db = "AppChat1.db";
+    private static final int version_db = 1;
 
     public SQLiteHelper(Context ctx){
         super(ctx, name_db, null, version_db);
@@ -68,7 +70,7 @@ class SQLiteHelper extends SQLiteOpenHelper {
         String[] p = new String[]{String.valueOf(contact_user), String.valueOf(id_user), String.valueOf(id_user), String.valueOf(contact_user)};
         Cursor cursor = db.rawQuery("SELECT * FROM mensagens WHERE (contact_user = ?  and id_user = ?) or (contact_user = ?  and id_user = ?)", p);
 
-        List<Chat> lista = new ArrayList<>();
+        List<Chat> lista = new ArrayList<Chat>();
 
         while(cursor.moveToNext()){
             Chat c = new Chat();
@@ -86,15 +88,16 @@ class SQLiteHelper extends SQLiteOpenHelper {
     public List<Chat> getAllChats(int id_user){
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String strSQL = "SELECT m.* FROM mensagens m WHERE m._id in (" +
-                "SELECT MAX(m2._id) FROM mensagens m2 WHERE " +
-                String.valueOf(id_user) +
-                " IN (m2.id_user, m2.contact_user)  GROUP BY max(m2.id_user, m2.contact_user) )" +
-                " ORDER BY m._id desc";
+        StringBuilder strSQL = new StringBuilder();
+        strSQL.append("SELECT m.* FROM mensagens m WHERE m._id in (");
+        strSQL.append("SELECT MAX(m2._id) FROM mensagens m2 WHERE ");
+        strSQL.append(String.valueOf(id_user));
+        strSQL.append(" IN (m2.id_user, m2.contact_user)  GROUP BY max(m2.id_user, m2.contact_user) )");
+        strSQL.append(" ORDER BY m._id desc");
 
-        Cursor cursor = db.rawQuery(strSQL, null);
+        Cursor cursor = db.rawQuery(strSQL.toString(), null);
 
-        List<Chat> lista = new ArrayList<>();
+        List<Chat> lista = new ArrayList<Chat>();
 
         while(cursor.moveToNext()){
             Chat c = new Chat();
@@ -122,7 +125,6 @@ class SQLiteHelper extends SQLiteOpenHelper {
             c.setContact_user(cursor.getInt(cursor.getColumnIndex("contact_user")));
             c.setName_contact(cursor.getString(cursor.getColumnIndex("name_contact")));
             c.setPhoto_contact(cursor.getString(cursor.getColumnIndex("photo_contact")));
-
         }
 
         return c;
@@ -132,7 +134,7 @@ class SQLiteHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM contatos", null);
 
-        List<Contato> lista = new ArrayList<>();
+        List<Contato> lista = new ArrayList<Contato>();
 
         while(cursor.moveToNext()){
             Contato c = new Contato();

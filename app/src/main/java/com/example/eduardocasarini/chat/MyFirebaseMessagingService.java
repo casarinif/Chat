@@ -1,6 +1,5 @@
 package com.example.eduardocasarini.chat;
 
-
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -66,7 +65,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         intent.putExtra("contact_user", contact_user);
         intent.putExtra("name_contact", "NOME PADRAO");
-        intent.putExtra("photo_contact", "http://192.168.15.15/whap/photos/Rafael_Silva_991.png");
+        intent.putExtra("photo_contact", "http://192.168.15.15/photos/Rafael_Silva_991.png");
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 

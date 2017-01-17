@@ -1,4 +1,5 @@
 package com.example.eduardocasarini.chat;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -13,9 +14,7 @@ import android.widget.TextView;
 import java.util.Calendar;
 import java.util.List;
 
-import static java.lang.Integer.parseInt;
-
-class ChatAdapter extends BaseAdapter {
+public class ChatAdapter extends BaseAdapter {
 
     private Context ctx = null;
     private List<Chat> lista = null;
@@ -64,11 +63,14 @@ class ChatAdapter extends BaseAdapter {
         } else {
             String data = c.getData();
             Calendar c1 = Calendar.getInstance();
-            if ((c1.get(Calendar.YEAR) == parseInt(data.split("\\-")[0]) ||
-                    ((c1.get(Calendar.MONTH) + 1) == parseInt(data
-                    .split("\\-")[1])) || !(c1.get(Calendar.DAY_OF_MONTH) == parseInt(data.split("\\-")[2].substring(0, 2)))))
+            if ((c1.get(Calendar.YEAR) == Integer
+                    .parseInt(data.split("\\-")[0]))
+                    && ((c1.get(Calendar.MONTH) + 1) == Integer.parseInt(data
+                    .split("\\-")[1]))
+                    && (c1.get(Calendar.DAY_OF_MONTH) == Integer.parseInt(data
+                    .split("\\-")[2].substring(0, 2)))) {
                 txvData.setText(data.split("\\ ")[1]);
-            else {
+            } else {
                 String new_data_br = data.split("\\-")[2].substring(0, 2)+"/"+ data.split("\\-")[1]+"/"+data.split("\\-")[0]+" " + data.split("\\-")[2].substring(2);
                 txvData.setText(new_data_br);
             }
@@ -77,7 +79,7 @@ class ChatAdapter extends BaseAdapter {
         LinearLayout containerChat = (LinearLayout)v.findViewById(R.id.containerChat);
         LinearLayout containerChat2 = (LinearLayout)v.findViewById(R.id.containerChat2);
 
-        SharedPreferences preferences = ctx.getSharedPreferences("USER_INFORMATION", Context.MODE_PRIVATE);
+        SharedPreferences preferences = ((Activity)ctx).getSharedPreferences("USER_INFORMATION", Context.MODE_PRIVATE);
         final int id_user = preferences.getInt("id_usuario", 0);
 
         if (id_user == c.getId_user()){

@@ -3,11 +3,16 @@ package com.example.eduardocasarini.chat;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -16,6 +21,10 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
+
+import org.json.JSONArray;
+
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (error == 0) {
-                    String URL = "http://192.168.15.15/chat/login_user.php";
+                    String URL = "http://192.168.15.15/whap/login_user.php";
 
                     SharedPreferences preferences = getBaseContext().getSharedPreferences("USER_INFORMATION", Context.MODE_PRIVATE);
                     String token_user = preferences.getString("token_usuario", "");

@@ -20,14 +20,13 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("ALL")
-class ImagePicker {
+public class ImagePicker {
 
     private static final int DEFAULT_MIN_WIDTH_QUALITY = 400; // min pixels
     private static final String TAG = "ImagePicker";
     private static final String TEMP_IMAGE_NAME = "tempImage";
 
-    private static final int minWidthQuality = DEFAULT_MIN_WIDTH_QUALITY;
+    public static int minWidthQuality = DEFAULT_MIN_WIDTH_QUALITY;
 
 
     public static Intent getPickImageIntent(Context context) {
@@ -107,7 +106,6 @@ class ImagePicker {
             e.printStackTrace();
         }
 
-        assert fileDescriptor != null;
         Bitmap actuallyUsableBitmap = BitmapFactory.decodeFileDescriptor(
                 fileDescriptor.getFileDescriptor(), null, options);
 
@@ -171,7 +169,7 @@ class ImagePicker {
         return rotate;
     }
 
-    private static int getRotationFromGallery(Context context, Uri imageUri) {
+    public static int getRotationFromGallery(Context context, Uri imageUri) {
         int result = 0;
         String[] columns = {MediaStore.Images.Media.ORIENTATION};
         Cursor cursor = null;
@@ -196,7 +194,8 @@ class ImagePicker {
         if (rotation != 0) {
             Matrix matrix = new Matrix();
             matrix.postRotate(rotation);
-            return Bitmap.createBitmap(bm, 0, 0, bm.getWidth(), bm.getHeight(), matrix, true);
+            Bitmap bmOut = Bitmap.createBitmap(bm, 0, 0, bm.getWidth(), bm.getHeight(), matrix, true);
+            return bmOut;
         }
         return bm;
     }

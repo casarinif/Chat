@@ -1,9 +1,5 @@
 package com.example.eduardocasarini.chat;
 
-/**
- * Created by eduardocasarini on 04/01/17.
- */
-
 public class Contato {
     private int _id;
 

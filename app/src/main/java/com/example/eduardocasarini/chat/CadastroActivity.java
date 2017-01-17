@@ -1,13 +1,17 @@
 package com.example.eduardocasarini.chat;
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,14 +20,15 @@ import android.widget.Toast;
 
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.ImageViewBitmapInfo;
 import com.koushikdutta.ion.Ion;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
 public class CadastroActivity extends AppCompatActivity {
-
 
     private static final int REQUEST_DIALOG_PHOTO = 1;
     private int havePhoto = 0;
@@ -90,7 +95,7 @@ public class CadastroActivity extends AppCompatActivity {
 
                     try {
                         photoFile = getBaseContext().getPackageManager().getPackageInfo(getBaseContext().getPackageName(), 0).applicationInfo.dataDir + "//photo//perfil.png";
-                    } catch (PackageManager.NameNotFoundException ignored) {
+                    } catch (PackageManager.NameNotFoundException e) {
 
                     }
 
@@ -132,10 +137,9 @@ public class CadastroActivity extends AppCompatActivity {
                 String path = "//data//" + getBaseContext().getPackageName() + "//photo//";
 
                 diretorio = new File(diretorio, path);
-                //noinspection ResultOfMethodCallIgnored
                 diretorio.mkdirs();
 
-                OutputStream out;
+                OutputStream out = null;
 
                 File outputFile = new File(diretorio, "perfil.png");
 
@@ -144,7 +148,7 @@ public class CadastroActivity extends AppCompatActivity {
                     photoUser.compress(Bitmap.CompressFormat.PNG, 100, out);
                     out.flush();
                     out.close();
-                } catch (Exception ignored) {
+                } catch (Exception e) {
 
                 }
 

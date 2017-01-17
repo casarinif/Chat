@@ -1,6 +1,7 @@
 package com.example.eduardocasarini.chat;
 import android.app.Activity;
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-class ContatosAdapter extends BaseAdapter {
+public class ContatosAdapter extends BaseAdapter {
 
     private Context ctx = null;
     private List<Contato> lista = null;
@@ -53,9 +54,9 @@ class ContatosAdapter extends BaseAdapter {
         TextView txvNome = (TextView)v.findViewById(R.id.txvNome);
         txvNome.setText(c.getName_contact());
 
-        ImageView imgvPhotoc = (ImageView)v.findViewById(R.id.imgvPhoto);
+        ImageView imgvPhoto = (ImageView)v.findViewById(R.id.imgvPhoto);
         Picasso.with(ctx).load(c.getPhoto_contact()).resize(200, 200)
-                .centerCrop().into(imgvPhotoc);
+                .centerCrop().into(imgvPhoto);
 
         return v;
     }

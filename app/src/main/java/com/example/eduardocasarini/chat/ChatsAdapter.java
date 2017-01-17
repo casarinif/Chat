@@ -1,4 +1,5 @@
 package com.example.eduardocasarini.chat;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -44,7 +45,7 @@ public class ChatsAdapter extends BaseAdapter {
 
         if (convertView == null) {
             LayoutInflater inflater = ((Activity)ctx).getLayoutInflater();
-            v = inflater.inflate(R.layout.model_contacts, null);
+            v = inflater.inflate(R.layout.model_all_chats, null);
         } else {
             v = convertView;
         }

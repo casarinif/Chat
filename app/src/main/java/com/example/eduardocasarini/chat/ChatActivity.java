@@ -39,6 +39,7 @@ public class ChatActivity extends AppCompatActivity {
         final Intent it = getIntent();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
